@@ -37,7 +37,18 @@ public class Variable04 {
 		
 		boolean b2 = Boolean.parseBoolean(s5);
 		System.out.println(b2);
+		System.out.println(s5);
 		
+		
+		
+		// 기본 타입 -> 문자열 String
+		
+		String s10 = String.valueOf(true);
+		String s11 = String.valueOf(123);
+		String s12 = String.valueOf(133.568);
+		
+		String s13 = 123 + ""; // "123"
+		//           int + String -> String
 
 	}
 
