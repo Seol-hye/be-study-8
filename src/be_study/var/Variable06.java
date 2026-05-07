@@ -25,13 +25,16 @@ public class Variable06 {
 		
 		System.out.println(str1);
 		System.out.println(str2);
-		System.out.println(str1 == str2);
+		System.out.println(str1 == str2);	//false
 		
 		// 문자열(String) 값 비교할 때는 == 으로 인식X -> .equals() 기능(메소드) 사용
 		
 		// 문자열.equals(문자열)
-		System.out.println(str1.equals(str2));
-		System.out.println(str2.equals(str1));
+		System.out.println(str1.equals(str2)); //똑같은 값 입력시 true
+		System.out.println(str2.equals(str1)); //똑같은 값 입력시 true
+		
+		System.out.println(str1 == "커피"); //false
+		System.out.println(str1.equals("커피")); // true  
 		
 		
 		
