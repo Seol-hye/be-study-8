@@ -2,7 +2,7 @@ package be_study.quiz;
 
 import java.util.Scanner;
 
-public class Quiz5 {
+public class Quiz05 {
 
 	public static void main(String[] args) {
 		

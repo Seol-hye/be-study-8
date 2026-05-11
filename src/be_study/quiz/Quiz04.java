@@ -1,6 +1,6 @@
 package be_study.quiz;
 
-public class Quiz4 {
+public class Quiz04 {
 
 	public static void main(String[] args) {
 		int x = 2;

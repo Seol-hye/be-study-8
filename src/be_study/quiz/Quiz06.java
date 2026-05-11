@@ -2,7 +2,7 @@ package be_study.quiz;
 
 import java.util.Scanner;
 
-public class Quiz6 {
+public class Quiz06 {
 
 	public static void main(String[] args) {
 		// 1번. 삼각형의 밑변과 높이를 입력받아서 넓이를 출력하세요. (소수점까지 표현)
