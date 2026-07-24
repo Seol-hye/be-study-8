@@ -29,6 +29,17 @@ public class ConvertDateUtil {
 		return ldt;
 	}
 	
+	// String -> LocalDateTime
+	public static LocalDateTime convertDateStringToLocalDateTime(String str) {
+		//					2020-05-30 12:33:44
+		//					2020/05/30
+		//					20200530 
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate ld = LocalDate.parse(str, fmt);
+			
+		return ld.atStartOfDay();
+	}
+	
 	public static LocalDateTime convertDateStringToLocalDateTime2(String str) {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		LocalDate ld = LocalDate.parse(str, fmt);
