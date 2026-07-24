@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import be_study.quiz.quiz45.Product;
 
-
 public class DBSampleMain {
 
 	public static void main(String[] args) {
@@ -14,51 +13,50 @@ public class DBSampleMain {
 
 		// insert 저장
 		int result1 = deptDAO.saveDept(90, "DEV", "SEOUL");
-		if( result1 > 0 ) {
+		if (result1 > 0) {
 			System.out.println("저장 성공 ~ 111");
 		}
-		
+
 		Dept saveDept1 = new Dept();
 		saveDept1.setDeptno(91);
 		saveDept1.setDname("Adv");
 		saveDept1.setLoc("Busan");
-		
+
 		int result2 = deptDAO.saveDept(saveDept1);
-		if( result2 > 0 ) {
+		if (result2 > 0) {
 			System.out.println("저장 성공 ~ 222");
 		}
-		
+
 		// ------------------------------------
-		
+
 		int result3 = deptDAO.removeDept(90);
 		int result4 = deptDAO.removeDept(saveDept1);
-		
-		if(result3 > 0)
+
+		if (result3 > 0)
 			System.out.println("90번 부서 삭제됨");
-		if(result4 > 0)
+		if (result4 > 0)
 			System.out.println("91번 부서 삭제됨");
-		
-		
-		//80번 부서 삭제
+
+		// 80번 부서 삭제
 		deptDAO.removeDept(80);
 		Dept rmd1 = new Dept(80, null, null);
 		deptDAO.removeDept(rmd1);
-		
+
 		// ------------------------------------
-		
-		//여러개를 저장하는 케이스
-		
+
+		// 여러개를 저장하는 케이스
+
 		List<Dept> saveDeptList = new ArrayList<Dept>();
-		saveDeptList.add( new Dept(81, "dn81", "loc81"));
-		saveDeptList.add( new Dept(82, "dn82", "loc82"));
-		saveDeptList.add( new Dept(83, "dn83", "loc83"));
-		
+		saveDeptList.add(new Dept(81, "dn81", "loc81"));
+		saveDeptList.add(new Dept(82, "dn82", "loc82"));
+		saveDeptList.add(new Dept(83, "dn83", "loc83"));
+
 		int result5 = 0;
-		for(Dept d : saveDeptList) {
+		for (Dept d : saveDeptList) {
 			int r = deptDAO.saveDept(d);
-			// r : 1	0
+			// r : 1 0
 			result5 += r;
-			if(r>0)
+			if (r > 0)
 				System.out.println("dept 저장 성공");
 		}
 		System.out.println("반복문 통해서 총 몇개가 저장되었나? 행의 수 합 : " + result5);
@@ -113,6 +111,45 @@ public class DBSampleMain {
 			for (Product p : productList) {
 				System.out.println(p.toString());
 			}
+		}
+
+		// -----------------------------------Update
+
+		// 기존 값 조회 -> 보유 -> 일부 변경 -> 변경사항을 반영(DB저장/update)
+
+		Dept up1 = deptDAO.findDeptByDeptno(81);
+		// pk 81 dept 항목 조회
+		// FE 사용자에게 표시
+		// 사용자가 변경할 값을 입력/수정
+
+		// 81 	dn81 	loc81
+		// 81 	dn81 	ASAN
+		up1.setLoc("ASAN");
+
+		int result6 = deptDAO.modifyDept(up1);
+		if (result6 > 0) {
+			System.out.println("업데이트 성공");
+		}
+
+		// 82 	dn82 	loc82
+		Dept up2 = new Dept(82, "LAW", "");
+		int result7 = deptDAO.modifyDept(up2);
+		if (result7 > 0) {
+			System.out.println("업데이트 성공2");
+		}
+
+		// 83 	dn83 	loc83
+		Dept up3 = new Dept(83, null, "ULSAN");
+		int result8 = deptDAO.modifyDept(up3);
+		if (result8 > 0) {
+			System.out.println("업데이트 성공3");
+		}
+		
+		// 81 	dn81 	ASAN
+		Dept up4 = new Dept(81, "FREE", "ASAN");
+		int result9 = deptDAO.modifyDept(up4);
+		if (result9 > 0) {
+			System.out.println("업데이트 성공4");
 		}
 
 	}
