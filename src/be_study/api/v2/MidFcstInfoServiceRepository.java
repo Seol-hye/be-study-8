@@ -121,7 +121,8 @@ public class MidFcstInfoServiceRepository {
 			midTaDTO.setResultCode(header.get("resultCode").toString());
 			midTaDTO.setResultMsg(header.get("resultMsg").toString());
 
-			midTaDTO.setTmFc("202607280600");
+			//midTaDTO.setTmFc("202607280600");
+			midTaDTO.setTmFc(tmFc); // 요청단계에서 사용하는 매개변수 tmFc 사용
 			midTaDTO.setRegId(item0.get("regId").toString());
 			midTaDTO.setTaMin4(((Number) (item0.get("taMin4"))).intValue());
 			midTaDTO.setTaMax4(Integer.parseInt(item0.get("taMax4").toString()));
